@@ -1,0 +1,52 @@
+config:
+  home-center-io_global-dns:dns:
+    entry:
+      adsp:
+        domains:
+          - names:
+              - _adsp._domainkey.home-center.io
+            zone: home-center
+        type: TXT
+        values:
+          - dkim=all
+      dkim:
+        domains:
+          - names:
+              - x._domainkey.home-center.io
+            zone: home-center
+        type: TXT
+        values:
+          - v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvfQQk2ng5Ow352FGKPRnSyzkxhaqKo8LL5RuN+0r1p8nUbdxz5sRHEXfMjsWnZKQ3naDpnEYbfVTeWRSmuuzVOSbO/2YuBSfQu2RsMUzXMGKk34m/4Hij9T6EJMl3+JcQe7yCxsj/Hod5W7+DAQIMW8qxCbpqqZ4u12cteRoDf1kX5vUamvKF5BC/HBQfcI1dxzw7QK3R/aEhSeEOZi/FRkETNFF9yuPLj5+jQr6+AEjjgto9KXTSt6GeT51WtQ+/bNeobFBNCJumCp2vpLZR8+c7waXTeJ1D4xD8xdD3bdrB5wSgCSo7I/cCWOB5SrY+tH29BD5/Qw2xe+k7RlYgQIDAQAB
+      dmarc:
+        domains:
+          - names:
+              - _dmarc.home-center.io
+            zone: home-center
+        type: TXT
+        values:
+          - v=DMARC1; p=reject; rua=mailto:postmaster@home-center.io; ruf=mailto:postmaster@home-center.io; fo=0; adkim=r; aspf=r; rf=afrf
+      mail:
+        domains:
+          - names:
+              - issues.home-center.io
+            zone: home-center
+        type: CNAME
+        values:
+          - home-center.youtrack.cloud.
+      mx:
+        domains:
+          - names:
+              - home-center.io
+            zone: home-center
+        type: MX
+        values:
+          - 10 lisa.mxrouting.net.
+          - 20 lisa-relay.mxrouting.net.
+      root-txt:
+        domains:
+          - names:
+              - home-center.io
+            zone: home-center
+        type: TXT
+        values:
+          - v=spf1 include:mxroute.com ~all

@@ -1,0 +1,6 @@
+name: home-center-io_global-dns
+description: "home-center.io: Global DNS"
+runtime:
+  name: nodejs
+  options:
+    typescript: false
